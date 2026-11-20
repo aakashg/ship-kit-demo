@@ -6,8 +6,8 @@ Two pull requests show both review routes:
 
 | PR | What it changes | Risk | Expected route |
 |---|---|---|---|
-| `ops/max-tokens-4xx` | The ops agent's real fix: a max-tokens error becomes a 400, not a 500, with a test | LOW (no high-risk path) | CodeRabbit reviews and approves, the workflow turns on auto-merge, GitHub merges once CI is green |
-| `fix/expired-session-401` | An expired session on `/v1/me` returns 401, not 500. Touches `app/auth/` | HIGH | CodeRabbit reviews but does not approve, the workflow labels it `needs-human-review`, it waits for the code owner |
+| `ops/max-tokens-4xx` | The ops agent's real fix: a max-tokens error now returns 400 (it returned 500), with a test | LOW (no high-risk path) | CodeRabbit reviews and approves, the workflow turns on auto-merge, GitHub merges once CI is green |
+| `fix/expired-session-401` | An expired session on `/v1/me` now returns 401 (it returned 500). Touches `app/auth/` | HIGH | CodeRabbit reviews but does not approve, the workflow labels it `needs-human-review`, it waits for the code owner |
 
 The service is synthetic. Nothing here runs in production.
 
