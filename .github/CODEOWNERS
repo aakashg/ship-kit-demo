@@ -1,0 +1,21 @@
+# Sandbox owners. Every high-risk path below needs a review from @aakashg.
+# Branch protection on main has "Require review from Code Owners" on.
+# Later lines win. Everything not listed here is open to AI review plus auto-merge.
+
+/infra/                @aakashg
+/.github/              @aakashg
+/.claude/              @aakashg
+/CLAUDE.md             @aakashg
+/CODEOWNERS            @aakashg
+/docs/CODEOWNERS       @aakashg
+/.coderabbit.yaml      @aakashg
+**/migrations/         @aakashg
+**/auth/               @aakashg
+**/billing/            @aakashg
+**/payments/           @aakashg
+**/secrets/            @aakashg
+**/authn/              @aakashg
+**/authz/              @aakashg
+*.tf                   @aakashg
+*.tfvars               @aakashg
+.env*                  @aakashg
