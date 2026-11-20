@@ -10,8 +10,8 @@ app = FastAPI(title="toy-ai-gateway")
 
 @app.get("/v1/me")
 def me(token: str):
-    from app.auth.session import validate_session
-    claims = validate_session(token)
+    from app.auth.session import require_session
+    claims = require_session(token)
     return {"exp": claims["exp"]}
 
 
