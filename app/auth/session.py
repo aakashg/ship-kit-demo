@@ -23,3 +23,15 @@ def validate_session(token, now=None):
     if exp < now:
         raise SessionExpired(f"token exp={exp} < now")
     return {"token": token, "exp": exp}
+
+
+def require_session(token, now=None):
+    """validate_session for a request handler: unknown or expired sessions become a 401, never a 500."""
+    from fastapi import HTTPException
+
+    try:
+        return validate_session(token, now)
+    except UnknownSession:
+        raise HTTPException(status_code=401, detail="unknown session")
+    except SessionExpired:
+        raise HTTPException(status_code=401, detail="session expired")
